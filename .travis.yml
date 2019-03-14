@@ -7,3 +7,16 @@ before_install:
 
 script:
     - docker run vkas288/frontend npm run test -- --coverage
+
+deploy:
+    provider: elasticbeanstalk
+    region: "us-east-1"
+    app: "frontend"
+    env: "Frontend-env"
+    bucker_name: "elasticbeanstalk-us-east-1-439462370694"
+    bucket_path: "frontend"
+    on:
+        branch: master
+    access_key_id: $AWS_ACCESS_KEY
+    secret_aCCESS_KEY:
+        SECURE: "$AWS_SECRET_KEY"
