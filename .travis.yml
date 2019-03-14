@@ -1,0 +1,9 @@
+sudo: required
+services:
+	- docker
+
+before_install:
+	- docker build -t vkas288/frontend -f Dockerfile.dev .
+
+script:
+	- docker run vkas288/frontend npm run test -- --coverage
