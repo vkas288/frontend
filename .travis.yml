@@ -1,9 +1,6 @@
 sudo: required
 services:
     - docker
-language: node_js
-node_js:
-    - "11.10.1"
 
 before_install:
     - docker build -t vkas288/frontend -f Dockerfile.dev .
